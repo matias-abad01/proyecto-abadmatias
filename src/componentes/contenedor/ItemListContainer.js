@@ -1,16 +1,36 @@
+import React, { useState, useEffect } from 'react';
+import ropaDeHombres from './data';
+import ItemList from './ItemList';
+//punto
+const promesa = new Promise((res, rej) => {
+    setTimeout(() => {
+      res(ropaDeHombres);
+    }, 2000);
+  });
 
-import './ItemListContainer.css'
-import ItemCount from './itemCount';
-function ListContainer ({titulo}) {
-    return(
-        <>
-            <h1>{titulo}</h1>
-            <div className='itemContainer'>       
-                <ItemCount initial={1} stock= {5} nombre="Remera"/>
-                <ItemCount initial={1} stock= {10} nombre="Pantalon"/>
-                        
+function ListContainer () {
+    const [products, setproducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    promesa.then((response) => {
+      setLoading(false);
+      setproducts(response);
+    });
+  }, []);
+
+    if (loading) {
+    return (
+      <>
+        <p>Cargando...</p>
+      </>
+    );
+  }
+    return( 
+            <div className='listContainer'>       
+                <ItemList items={products}/>           
             </div>
-        </>
     );
    
 }

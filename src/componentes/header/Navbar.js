@@ -19,7 +19,7 @@ const Navbar = () => {
                 </nav>
                 <CartWidget />
                 <div className="boton">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="" viewBox="0 0 45 29" enable-background="new 0 0 45 29">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px"  viewBox="0 0 45 29" enable-background="new 0 0 45 29">
                         <g>
                         <line fill="none" stroke="#000000" stroke-width="6" stroke-miterlimit="10" x1="1.5" y1="4.5" x2="44" y2="4"/>
                         </g>

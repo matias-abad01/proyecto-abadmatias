@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './itemCount.css'
+
 
 function ItemCount ({stock,initial,nombre}) {
 
@@ -26,6 +27,7 @@ function ItemCount ({stock,initial,nombre}) {
         }
 
     }
+    
 
     return(
         <div className='item'>

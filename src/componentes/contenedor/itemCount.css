@@ -54,6 +54,9 @@
     text-align: center;
     
 }
+.botonContador button:hover{
+    transform: scale(0.9,0.9);
+}
 
 .botonContador p{
     width: 50px;
@@ -73,6 +76,6 @@
     
 }
 .botonAgregar:hover{
-    border: 1px solid black;
+    
    
 }
