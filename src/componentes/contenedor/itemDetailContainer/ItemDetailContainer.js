@@ -10,6 +10,7 @@ function ItemDetailContainer (){
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
+        setLoaded(true);
         setTimeout(() => {
             fetch("https://ropadehombres-f34d5-default-rtdb.firebaseio.com/stock.json")
             .then((response)=> response.json())
