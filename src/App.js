@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './componentes/header/Navbar';
 import ListContainer from './componentes/contenedor/ItemListContainer';
+import ItemDetailContainer from './componentes/contenedor/itemDetailContainer/ItemDetailContainer'
 
 
 
@@ -8,7 +9,8 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <ListContainer titulo='hola mundo'/>
+      <ListContainer/>
+      <ItemDetailContainer/>
       
 
 
