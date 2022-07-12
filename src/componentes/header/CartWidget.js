@@ -6,7 +6,7 @@ import './CartWidget.css';
 const CartWidget = () => {
   
   function clickear (){
-    console.log("hola");
+    console.log("insertar contenido");
   }
 
   return (

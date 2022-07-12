@@ -2,11 +2,12 @@ import React from 'react';
 import Item from './Item';
 
 
+
 function ItemList ({ items }) {
   return (
     <div style={itemListStyle}>
       {items.map((item) => {
-        return <Item item={item} key={item.id}/>;
+        return <Item item={item} key={item.id}/> ;
       })}
     </div>
   );

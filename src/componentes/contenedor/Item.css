@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 250px;
+    width: 290px;
     padding: 20px;
     background-color: rgba(49, 49, 49, 0.726);
     backdrop-filter: blur(1rem);
@@ -24,37 +24,49 @@
 }
 
 .container-img img{
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    border: 3px solid white;
+    background-color: white;
+    outline: 5px double #ffffff;
+    
     
 
 }
+.item h3{
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: white;
+    height: 85px;
+    
+}
 
-.item p, .item h3{
+.item p{
     width: 100%;
     text-align: center;
     text-transform: capitalize;
     color: white;
 }
-.item button{
-    width: 60%;
-    height: 40px;
+.item a{
+    width: 80%;
+    padding: 5px;
     text-align: center;
     text-transform: capitalize;
     border-radius: 10px;
     border: 3px solid white;
-    cursor: pointer;
+    font-size: 0.9rem;
+    
     color: white;
-    margin: 10px;
+    margin-top: 10px;
     background-color: rgba(0, 0, 0, 0.726);
     backdrop-filter: blur(1rem);
     transition: all 0.3s ease;
 }
 
-.item button:hover{
+.item a:hover{
     color: rgba(255, 255, 255, 0.623);
     border-color: rgba(255, 255, 255, 0.623);
 }

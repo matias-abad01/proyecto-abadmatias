@@ -1,26 +1,29 @@
 import ItemDetail from './ItemDetail';
 import { SpinnerCircular } from 'spinners-react';
 import React, { useState, useEffect } from 'react';
-
+import { useParams } from 'react-router-dom';
 
 
 
 function ItemDetailContainer (){
+
+    const {id} = useParams();
+
     const [product, setproduct] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         setLoaded(true);
-        setTimeout(() => {
-            fetch("https://ropadehombres-f34d5-default-rtdb.firebaseio.com/stock.json")
-            .then((response)=> response.json())
-            .then((data)=>{ setproduct(data[0])})
-            .catch((err)=>console.log(err))
-            .finally(()=>setLoaded(false))
-        }, 2000);
+        
+        fetch(`https://fakestoreapi.com/products/${id}`)
+        .then((response)=> response.json())
+        .then((data)=>{ setproduct(data)})
+        .catch((err)=>console.log(err))
+        .finally(()=>setLoaded(false))
+        
     
        
-    }, []);
+    }, [id]);
 
 
     if(loaded){
@@ -34,6 +37,7 @@ function ItemDetailContainer (){
     else{
     return(
         <div style={ItemDetailStyle}>
+
             <ItemDetail item={product}/>
         </div>
     )

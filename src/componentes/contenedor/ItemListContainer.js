@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
 import ItemList from './ItemList';
 import { SpinnerCircular } from 'spinners-react';
+import { useParams } from 'react-router-dom';
 //punto de encuentro
+
 
 // extraer api
 
@@ -15,18 +16,38 @@ import { SpinnerCircular } from 'spinners-react';
   */
 
 function ListContainer () {
+
+  const {categoryName} = useParams();
+  
   
   const [products, setproducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const[error, setError] = useState(false)
+  const[error, setError] = useState(false);
+
+  
+
+
 
   useEffect(() => {
+    const URL = categoryName ? `https://fakestoreapi.com/products/category/${categoryName}`: `https://fakestoreapi.com/products`;
+    console.log(categoryName);
+
+    setLoading(true);
+    fetch(URL)
+    .then((response)=> response.json())
+    .then((data)=>{setproducts(data)})
+    .catch((err)=>console.log(err))
+    .catch(()=> setError(true))
+    .finally(()=>setLoading(false))
     
+/*
     const getProducts = async ()=>{
       setLoading(true);
       try {
         const response = await fetch('https://ropadehombres-f34d5-default-rtdb.firebaseio.com/stock.json');
       const data = await response.json();
+      console.log(data)
+      
       
       setproducts(data);
       }
@@ -41,16 +62,10 @@ function ListContainer () {
       
     }
     getProducts();
-   /*
-    setLoading(true);
-    fetch("https://ropadehombres-f34d5-default-rtdb.firebaseio.com/stock.json")
-    .then((response)=> response.json())
-    .then((data)=>{
-      setLoading(false);
-        setproducts(data);})
-        .catch((err)=>console.log(err))*/
+   */
     
-  }, []);
+    
+  }, [categoryName]);
 
     if (loading) {
       return (

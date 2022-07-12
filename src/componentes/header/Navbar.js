@@ -1,23 +1,23 @@
 import logo from '../../assets/imglogo.png'
 import './Navbar.css';
 import CartWidget from './CartWidget';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+    const categories = [
+        {name:"electronics", id:0, route: "/category/electronics"},
+        {name:"jewelery", id:1, route: "/category/jewelery"},
+        {name:"men's clothing", id:2, route: "/category/men's clothing"},
+        {name:"women's clothing", id:3, route: "/category/women's clothing"}
+    ]
     return (
         <header>
             <div className="menu">
-                <div className="logo">
-                    <img src={logo} alt="" />   
-                </div>
+                <Link to="/" className='logo'> <img src={logo} alt="shopmen" /></Link>
                 <nav className="links">
-                    <ul>
-                        <li className='inicio'><a href="/">inicio</a></li>
-                        <li><a href="/">productos</a></li>
-                        <li><a href="/">preguntas frecuentes</a></li>
-                        <li><a href="/">contacto</a></li>
-                    </ul>
+                    {categories.map((a)=><NavLink key={a.id} to={a.route}>{a.name}</NavLink>)} 
                 </nav>
-                <CartWidget />
+                <Link to="/cart"><CartWidget /></Link>
                 <div className="boton">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px"  viewBox="0 0 45 29" enable-background="new 0 0 45 29">
                         <g>
