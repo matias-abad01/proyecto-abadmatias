@@ -1,45 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './itemCount.css'
 
 
-function ItemCount ({stock,initial,nombre}) {
+const ItemCount = ({ initial, onAdd, stock }) => {
 
-    const [contador, setcontador] = useState(initial)
+    const [count, setCount] = useState(initial);
 
-    const sumar = ()=>{
-        if(contador >= stock){
+    const handlerClickAdd = () => {
+        if (count < stock) {
+            setCount(count + 1);
         }
-        else{setcontador(contador + 1);}
-        
-    }
-    const restar = ()=>{ 
-        if (contador === 0){
-        }
-        else{setcontador(contador - 1);}
-        
     }
 
-    const onAdd = ()=>{
-        if(contador === 0){
+    const handlerClickSubtrack = () => {
+        if (count > 1) {
+            setCount(count - 1);
         }
-        else{
-            alert("total: " + contador )
-        }
-
     }
+
+    const handlerClickAddToCart = () => {
+        onAdd(count);
+    }
+
     
 
     return(
-        <div className='item'>
-            <h3>{nombre}</h3>
+        <div className='itemCount'>
+            
             <p>Stock: {stock}</p>
             <div className='Contador'>
                 <div className='botonContador'>
-                    <button onClick={restar}>-</button>
-                    <p>{contador}</p>
-                    <button onClick={sumar}>+</button>    
+                    <button onClick={() => handlerClickSubtrack()}>-</button>
+                    <p>{count}</p>
+                    <button onClick={() => handlerClickAdd()}>+</button>    
                 </div>  
-                <button onClick={onAdd} className='botonAgregar'>agregar al carrito</button>
+                <button onClick={() => handlerClickAddToCart()} className='botonAgregar'>agregar al carrito</button>
             </div>
         </div>
     );

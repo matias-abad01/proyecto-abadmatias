@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './componentes/header/Navbar';
 import ListContainer from './componentes/contenedor/ItemListContainer';
 import ItemDetailContainer from './componentes/contenedor/itemDetailContainer/ItemDetailContainer'
-import Cart from './componentes/cart/cart';
+import Cart from './componentes/cart/Cart';
 
 import {
   BrowserRouter,

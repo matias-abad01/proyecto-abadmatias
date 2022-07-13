@@ -1,6 +1,18 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import './ItemDetail.css'
+import ItemCount from '../itemCount';
+
 
 function ItemDetail ({ item }){
+
+    const [buyFinalized, setBuyFinalized] = useState(false);
+    
+
+    const onAdd = () => {
+        setBuyFinalized(true);
+      }
+    
     return(
         <div className="item-detail">
             <div className='info1'>
@@ -11,7 +23,14 @@ function ItemDetail ({ item }){
                 <span>Descripción:</span>
                 <p>{item.description}</p>
                 <span> <strong>precio:</strong> ${item.price}</span>
-                <button>Comprar</button>
+
+                {buyFinalized
+                ? <Link to="/cart">
+                    <button>Finalizar compra</button>
+                    </Link>
+                : <ItemCount initial={1} stock={5} onAdd={onAdd} />}
+                
+                
             </div>
             
         </div>
